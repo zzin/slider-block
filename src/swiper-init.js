@@ -34,7 +34,6 @@ export function SwiperInit(container, options = {}) {
 		parameters.autoplay = {
 			delay: options?.delay,
 		}
-		console.log(parameters)
 	}
 
 	return new Swiper(container, parameters)
