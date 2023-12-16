@@ -12,11 +12,15 @@
 $autoplay   = empty( $attributes['autoplay'] ) ? false : $attributes['autoplay'];
 $navigation = empty( $attributes['navigation'] ) ? false : $attributes['navigation'];
 $pagination = empty( $attributes['pagination'] ) ? false : $attributes['pagination'];
+$loop       = empty( $attributes['loop'] ) ? false : $attributes['loop'];
+$delay      = empty( $attributes['delay'] )? false : $attributes['delay'];
 
 $swiper_attr = array(
 	'autoplay'   => $autoplay,
 	'navigation' => $navigation,
 	'pagination' => $pagination,
+  'loop'       => $loop,
+  'delay'      => $delay,
 );
 $swiper_attr = htmlspecialchars( wp_json_encode( $swiper_attr ) );
 
@@ -29,8 +33,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 <div <?php echo wp_kses_data( $wrapper_attributes ) . 'data-swiper="' . esc_attr( $swiper_attr ) . '"'; ?>>
 
-	<div class="swiper-wrapper">
-		<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	</div>
+  <div class="swiper-wrapper">
+    <?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+  </div>
 
 </div><!-- .swiper -->

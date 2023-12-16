@@ -1,0 +1,6 @@
+{
+	"editor.formatOnSave": true,
+	"editor.insertSpaces": true,
+	// "prettier.requireConfig": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
+}

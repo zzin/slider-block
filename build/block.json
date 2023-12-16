@@ -22,6 +22,14 @@
     "pagination": {
       "type": "boolean",
       "default": true
+    },
+    "loop": {
+      "type": "boolean",
+      "default": false
+    },
+    "delay": {
+      "type": "number",
+      "default": 1000
     }
   },
   "example": {},
