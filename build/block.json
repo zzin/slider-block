@@ -29,7 +29,15 @@
     },
     "delay": {
       "type": "number",
-      "default": 1000
+      "default": 4000
+    },
+    "effect": {
+      "type": "string",
+      "enum": [
+        "horizontal",
+        "fade"
+      ],
+      "default": "horizontal"
     }
   },
   "example": {},

@@ -14,6 +14,7 @@ $navigation = empty( $attributes['navigation'] ) ? false : $attributes['navigati
 $pagination = empty( $attributes['pagination'] ) ? false : $attributes['pagination'];
 $loop       = empty( $attributes['loop'] ) ? false : $attributes['loop'];
 $delay      = empty( $attributes['delay'] )? false : $attributes['delay'];
+$effect     = empty( $attributes['effect'] ) ? false : $attributes['effect'];
 
 $swiper_attr = array(
 	'autoplay'   => $autoplay,
@@ -21,6 +22,7 @@ $swiper_attr = array(
 	'pagination' => $pagination,
   'loop'       => $loop,
   'delay'      => $delay,
+  'effect'     => $effect,
 );
 $swiper_attr = htmlspecialchars( wp_json_encode( $swiper_attr ) );
 

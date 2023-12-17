@@ -1,3 +1,4 @@
+/* eslint-disable @wordpress/no-unsafe-wp-apis */
 /**
  * WordPress dependencies
  */
@@ -17,8 +18,9 @@ import {
 	PanelBody,
 	PanelRow,
 	ToggleControl,
-	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalNumberControl as NumberControl,
+	__experimentalRadio as Radio,
+	__experimentalRadioGroup as RadioGroup,
 } from '@wordpress/components'
 import { useRefEffect } from '@wordpress/compose'
 import { useSelect, useDispatch, select, subscribe } from '@wordpress/data'
@@ -174,7 +176,7 @@ const Slider = memo(({ clientId, attributes, innerBlocksProps }) => {
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { autoplay, navigation, pagination, loop, delay } = attributes
+	const { autoplay, navigation, pagination, loop, delay, effect } = attributes
 	const { clientId } = useBlockEditContext()
 	const blockProps = useBlockProps()
 	// Our nested innerblocks that will be inserted by default.
@@ -282,17 +284,29 @@ export default function Edit({ attributes, setAttributes }) {
 						/>
 					</PanelRow>
 					<PanelRow>
-						<NumberControl
-							label={__('Delay', 'wpe')}
-							step={100}
-							value={delay}
-							onChange={(value) => {
-								const numberValue = Number(value)
-								if (!isNaN(numberValue)) {
-									setAttributes({ delay: numberValue })
-								}
-							}}
-						/>
+						<fieldset className="flex-align-center">
+							<NumberControl
+								label={__('Delay', 'wpe')}
+								step={100}
+								value={delay}
+								onChange={(value) => {
+									const numberValue = Number(value)
+									if (!isNaN(numberValue)) {
+										setAttributes({ delay: numberValue })
+									}
+								}}
+							/>
+						</fieldset>
+					</PanelRow>
+					<PanelRow>
+						<RadioGroup
+							label={__('Effect', 'wpe')}
+							onChange={(value) => setAttributes({ effect: value })}
+							checked={effect}
+						>
+							<Radio value="horizontal">Horizontal</Radio>
+							<Radio value="fade">Fade</Radio>
+						</RadioGroup>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
